@@ -15,9 +15,9 @@ class SQLiteTest extends PHPUnit\Framework\TestCase
 
     }
 
-    public function testMethod2()
+    public function testConnectAndCreate()
     {
-        $this->assertTrue(true);
+        
     }
 
 }
