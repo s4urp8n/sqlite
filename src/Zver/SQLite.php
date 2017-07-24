@@ -31,15 +31,15 @@ namespace Zver {
             ]);
 
             $this->connection = $pdo;
-        }
-
-        public function insertInTransaction($table, array $values, $ignore = false)
-        {
 
             $this->execute("PRAGMA synchronous=OFF");
             $this->execute("PRAGMA count_changes=OFF");
             $this->execute("PRAGMA journal_mode=NORMAL");
             $this->execute("PRAGMA temp_store=MEMORY");
+        }
+
+        public function insertInTransaction($table, array $values, $ignore = false)
+        {
 
             $this->connection->beginTransaction();
 
@@ -48,7 +48,6 @@ namespace Zver {
             }
 
             $this->connection->commit();
-
         }
 
         public function fetch($query)

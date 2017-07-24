@@ -14,7 +14,8 @@ class SQLiteTest extends PHPUnit\Framework\TestCase
 
     public static function tearDownAfterClass()
     {
-
+        $obj = new static();
+        @unlink($obj->getTestDB());
     }
 
     public function getTestDB()
@@ -65,7 +66,6 @@ class SQLiteTest extends PHPUnit\Framework\TestCase
 
         $sq->disconnect();
 
-        @unlink($this->getTestDB());
     }
 
     public function testDisconnect()
